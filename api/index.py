@@ -23,7 +23,7 @@ def get_rank(username):
     medium = int(soup.find_all("span", {"class": counts_css},)[1].text)
     hard = int(soup.find_all("span", {"class": counts_css},)[2].text)
 
-    solved = easy + medium + hard
+    solved = int(easy + medium + hard)
 
     return jsonify(
         {"rank": rank, "solved": solved, "easy": easy, "medium": medium, "hard": hard,}
