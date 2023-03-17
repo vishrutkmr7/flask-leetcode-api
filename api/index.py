@@ -18,12 +18,12 @@ def get_rank(username):
     rank_class = "ttext-label-1 dark:text-dark-label-1 font-medium"
     counts_css = "mr-[5px] text-base font-medium leading-[20px] text-label-1 dark:text-dark-label-1"
 
-    rank = soup.find("span", {"class": rank_class}).text
+    rank = int(soup.find("span", {"class": rank_class}).text)
     easy = int(soup.find_all("span", {"class": counts_css},)[0].text)
     medium = int(soup.find_all("span", {"class": counts_css},)[1].text)
     hard = int(soup.find_all("span", {"class": counts_css},)[2].text)
 
-    solved = int(easy + medium + hard)
+    solved = easy + medium + hard
 
     return jsonify(
         {"rank": rank, "solved": solved, "easy": easy, "medium": medium, "hard": hard,}
