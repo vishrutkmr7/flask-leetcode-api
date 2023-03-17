@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 app = Flask(__name__)
 
 @app.route('/')
- def home():
-     return 'Hello, World!'
+def home():
+    return "Hello, World!"
 
 
 @app.route("/my-leetcode-rank/<username>", methods=["GET"])
@@ -50,5 +50,5 @@ def get_rank(username):
     )
 
 
-# if __name__ == "__main__":
-#     app.run()
+if __name__ == "__main__":
+    app.run()
